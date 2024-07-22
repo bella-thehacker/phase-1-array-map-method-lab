@@ -12,5 +12,22 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  return tutorials
+  return tutorials.map(title => 
+    title
+      .split(' ')
+      .map(word => {
+        const acronyms = ["oo", "api", "nan", "json"]
+        if(acronyms.includes(word)){
+          return word.toUpperCase()
+        }
+         return  word.charAt(0).toUpperCase() + word.slice(1)
+      })
+      .join(' ')
+  );
 }
+
+const result = titleCased();
+console.log(result);
+
+
+
